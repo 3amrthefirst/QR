@@ -13,24 +13,28 @@
 <div class="container mt-4">
 
 
-    <div class="card">
-        <div class="card-header">
-            <h2>Simple QR Code</h2>
-        </div>
-
+    <div class="card col-md-4 d-flex m-auto" >
+            <div class="card-header">
+                <h2>Simple QR Code</h2>
+            </div>
         <div class="card-body">
-            {!! QrCode::size(300)->generate($link) !!}
+            {!!  QrCode::size(400)->generate($link) !!}
         </div>
+        <form class="p-3"  action="{{route('pdf')}}" method="post" >
+            @csrf
+            <input type="hidden" name="link" value="{{$link}}" >
+            <button type="submit" class="btn btn-dark" style="display: block !important;"> download pdf </button>
+        </form>
     </div>
 
-    <div class="card">
-        <div class="card-header">
-            <h2>Color QR Code</h2>
-        </div>
-        <div class="card-body">
-            {!! QrCode::size(300)->backgroundColor(255,90,0)->generate($link) !!}
-        </div>
-    </div>
+{{--    <div class="card">--}}
+{{--        <div class="card-header">--}}
+{{--            <h2>Color QR Code</h2>--}}
+{{--        </div>--}}
+{{--        <div class="card-body">--}}
+{{--            {!! QrCode::size(300)->backgroundColor(255,90,0)->generate($link) !!}--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>

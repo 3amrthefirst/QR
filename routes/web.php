@@ -21,3 +21,5 @@ Route::post('/qrcode-generator' , [QrCodeController::class,'store'])->name('qrco
 
 Route::get('/qrcode', [QrCodeController::class, 'index']);
 
+Route::post('/pdf', [QrCodeController::class, 'pdf'])->name('pdf');
+
